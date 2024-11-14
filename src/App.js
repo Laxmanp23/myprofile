@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
+const App = () => {
+  const developer = {
+    name: 'Laxman Pawar',
+    email: 'contact@laxmanpawar.site',
+    bio: 'Experienced React developer with a strong background in building scalable web applications.',
+    skills: ['JavaScript', 'React', 'Node.js', 'CSS'],
+    avatarUrl: 'https://via.placeholder.com/150'
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={styles.container}>
+      <img src={developer.avatarUrl} alt="Avatar" style={styles.avatar} />
+      <h1>{developer.name}</h1>
+      <p>Email: {developer.email}</p>
+      <p>{developer.bio}</p>
+      <h3>Skills:</h3>
+      <ul>
+        {developer.skills.map(skill => (
+          <li key={skill}>{skill}</li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '20px',
+    border: '1px solid #ccc',
+    borderRadius: '10px',
+    maxWidth: '400px',
+    margin: '0 auto'
+  },
+  avatar: {
+    borderRadius: '50%',
+    width: '150px',
+    height: '150px',
+    marginBottom: '20px'
+  }
+};
+
+
 
 export default App;
